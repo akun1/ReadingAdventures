@@ -4,7 +4,6 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { BookViewComponent } from './book-view/book-view.component';
 
 const routes: Routes = [
-  { path: '', component: BookViewComponent },
   { path: 'books', component: BookViewComponent },
   { path: '**', redirectTo: 'books' },
 ];

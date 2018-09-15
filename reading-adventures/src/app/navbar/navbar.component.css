@@ -5,12 +5,14 @@
     box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
 }
 
-.navbar a {
+.navbar a, #nav-books {
     color: white;
 }
 
-.nav-link {
-    color: white;
+.activated-link {
+    background-color: white;
+    border-radius: 20px;
+    color: black !important;
 }
 
 .my-sm-0 {

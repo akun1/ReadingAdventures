@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -11,10 +10,11 @@ const httpOptions = {
 })
 export class LibraryServiceService {
 
+  private base_api_url : string = "https://dk9zsfj2cc.execute-api.us-east-1.amazonaws.com";
+
   constructor(private http: HttpClient) { }
 
   getLibrary() {
-    return this.http.get('https://dk9zsfj2cc.execute-api.us-east-1.amazonaws.com/dev/lib');
+    return this.http.get(this.base_api_url + '/dev/lib');
   }
-  
 }

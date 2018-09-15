@@ -1,4 +1,8 @@
 .navbar {
-    background-color: transparent !important;
-    box-shadow: 0px 3px 5px rgba(0,0,0,0.1);
+    background-color: #ff912f !important;
+    box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
+}
+
+.my-sm-0 {
+    padding-bottom: 0;
 }

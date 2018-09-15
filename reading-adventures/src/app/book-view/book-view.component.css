@@ -1,0 +1,26 @@
+#main-card-view {
+    margin-left: 3rem;
+    margin-right: 3rem;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+}
+.card {
+    border: 1px solid #f1f1f1;
+    border-radius: 5px;
+    visibility: visible;
+    -webkit-transform: translateY(0) scale(1);
+    transform: translateY(0) scale(1);
+    -webkit-transition: box-shadow 0.25s ease-in-out 0s;
+    transition: box-shadow 0.25s ease-in-out 0s;
+    box-shadow: 0px 3px 5px rgba(0,0,0,0.1);
+}
+
+.card:hover {
+    box-shadow: 0px 3px 15px rgba(0,0,0,0.25);
+}
+
+.jumbotron {
+    background-color: transparent;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+}

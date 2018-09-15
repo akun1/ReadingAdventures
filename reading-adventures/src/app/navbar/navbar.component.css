@@ -1,6 +1,16 @@
 .navbar {
-    background-color: #ff912f !important;
+    background-color: #4267b2 !important;
+    border-bottom: 1px solid #29487d;
+    color: white;
     box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
+}
+
+.navbar a {
+    color: white;
+}
+
+.nav-link {
+    color: white;
 }
 
 .my-sm-0 {

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LibraryService } from '../library-service.service';
+import { Observable } from 'rxjs/Rx';
 
 @Component({
   selector: 'app-book-view',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookViewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _libraryService: LibraryService) { }
 
   ngOnInit() {
   }

@@ -5,14 +5,23 @@
     box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
 }
 
-.navbar a, #nav-books {
+.navbar a, #nav-books, #nav-read {
     color: white;
+}
+
+#nav-read {
+    pointer-events: none;
+    color: lightgray;
 }
 
 .activated-link {
     background-color: white;
     border-radius: 20px;
     color: black !important;
+}
+
+.invisible-link {
+    display: none;
 }
 
 .my-sm-0 {

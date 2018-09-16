@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LibraryService } from '../library-service.service';
+import { Book } from '../book';
+import { LibraryServiceService } from '../library-service.service';
 
 @Component({
   selector: 'app-book-view',
@@ -8,17 +9,13 @@ import { LibraryService } from '../library-service.service';
 })
 export class BookViewComponent implements OnInit {
 
-  constructor(private _libraryService: LibraryService) { }
+  private books = [];
 
-  ngOnInit() {
+  constructor(private _libraryService: LibraryServiceService) {
+    _libraryService.getLibrary();
+    console.log(_libraryService.catalog);
   }
 
-  loadLibrary() {
-    this.configService.getConfig()
-      .subscribe((data: Config) => this.config = {
-          heroesUrl: data['heroesUrl'],
-          textfile:  data['textfile']
-      });
-  }
+  ngOnInit() {}
 
 }

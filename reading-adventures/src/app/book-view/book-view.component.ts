@@ -12,8 +12,7 @@ export class BookViewComponent implements OnInit {
   private books = [];
 
   constructor(private _libraryService: LibraryServiceService) {
-    _libraryService.getLibrary();
-    console.log(_libraryService.catalog);
+    console.log(_libraryService.catalog.length);
   }
 
   ngOnInit() {}

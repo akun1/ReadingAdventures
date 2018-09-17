@@ -15,7 +15,8 @@ export class LibraryServiceService {
   catalog : Book[] = [];
   
   constructor(private http: HttpClient) {
-    this.http.get(this.base_api_url + '/dev/lib').subscribe((res) => {
+    this.http.get<[]>(this.base_api_url + '/dev/lib').subscribe((res) => {
+      console.log(res);
       if(res.length !== 0) {
         for(var i=0; i<res.length;i++) {
           this.catalog.push(new Book(res[i]["author"],res[i]["id"],res[i]["thumbnail_url"],res[i]["Title"]));

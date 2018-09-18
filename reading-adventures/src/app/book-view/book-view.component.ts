@@ -9,10 +9,12 @@ import { LibraryServiceService } from '../library-service.service';
 })
 export class BookViewComponent implements OnInit {
 
-  private books = [];
+  private books : Book[] = [];
 
   constructor(private _libraryService: LibraryServiceService) {
-    console.log(_libraryService.catalog.length);
+    this._libraryService.books$.subscribe((value) => {
+      this.books.push(value); 
+    });
   }
 
   ngOnInit() {}

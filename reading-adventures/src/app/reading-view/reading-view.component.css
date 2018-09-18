@@ -37,3 +37,9 @@
     height: 70vh;
     margin-bottom: 8vh;
 }
+
+.header-summary {
+    color: gray;
+    font-style: italic;
+    width: 35vw;
+}

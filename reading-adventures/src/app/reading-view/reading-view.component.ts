@@ -44,4 +44,10 @@ export class ReadingViewComponent implements OnInit {
     return found_book;
   }
 
+  parseBibleJSON(json) {
+    json.forEach(element => {
+      console.log(element);
+    });;
+  }
+
 }

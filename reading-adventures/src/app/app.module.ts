@@ -10,6 +10,7 @@ import { BookViewComponent } from './book-view/book-view.component';
 import { ReadingViewComponent } from './reading-view/reading-view.component';
 import { LibraryServiceService } from './library-service.service';
 import { SimpleAuthGuardService } from './simple-auth-guard.service';
+import { GetBibleService } from './get-bible.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { SimpleAuthGuardService } from './simple-auth-guard.service';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [LibraryServiceService,SimpleAuthGuardService],
+  providers: [LibraryServiceService,SimpleAuthGuardService,GetBibleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

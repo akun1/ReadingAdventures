@@ -20,7 +20,7 @@ export class LibraryServiceService {
   constructor(private http: HttpClient) {
     this.http.get<Book[]>(this.base_api_url + '/dev/lib').subscribe((res) => {
       res.forEach(element => {
-        this.books$.next(new Book(element["author"],element["id"],element["thumbnail_url"],element["Title"]));
+        this.books$.next(new Book(element["author"],element["id"],element["thumbnail_url"],element["summary"],element["Title"]));
       });
     });
   }

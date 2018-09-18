@@ -43,6 +43,11 @@
     margin-bottom: 0;
 }
 
+.card-summary {
+    color: gray;
+    font-style: italic;
+}
+
 /*-----------------------------------------------------------*/
 
 @media (max-width: 33em) {

@@ -27,7 +27,7 @@ export class ReadingViewComponent implements OnInit {
   }
 
   getBookWithId(id) {
-    var found_book : Book = new Book('','','','');
+    var found_book : Book = new Book('','','','','');
     var arr = JSON.parse(localStorage.getItem("books"));
     arr.forEach(element => {
       if(element['id'] == id) {

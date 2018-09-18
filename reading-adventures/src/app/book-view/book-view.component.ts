@@ -28,4 +28,5 @@ export class BookViewComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     localStorage.setItem("books",JSON.stringify(this.books));
+  }
 }

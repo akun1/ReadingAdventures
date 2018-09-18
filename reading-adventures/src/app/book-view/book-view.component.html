@@ -6,8 +6,8 @@
   </div>
 </div>
 <div class="card-columns" id="main-card-view">
-  <a class="whole-card-link" routerLink="/read">
-    <div class="card" *ngFor="let b of books">
+  <a class="whole-card-link" (click)="bookClicked()" *ngFor="let b of books" routerLink="/read/{{b.id}}">
+    <div class="card">
       <img class="card-img-top" src="{{b.thumbnail_url}}" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">{{b.title}}</h5>

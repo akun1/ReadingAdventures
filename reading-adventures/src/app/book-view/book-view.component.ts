@@ -12,9 +12,9 @@ export class BookViewComponent implements OnInit, OnDestroy {
   private books : Book[] = [];
 
   constructor(private _libraryService: LibraryServiceService) {
-    if(localStorage.getItem("books") !== null) {
+    if(this.booksInMem()) {
       console.log('getting books from mem...');
-      this.books = JSON.parse(localStorage.getItem("books"));
+      this.books = this.getBooksFromMem();
     }
     else {
       this._libraryService.books$.subscribe(
@@ -27,6 +27,32 @@ export class BookViewComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    if(!this.booksInMem()) {
+      this.addBooksToMem();
+    }
+  }
+
+  bookClicked() {
+    console.log('book clicked');
+    if(!this.booksInMem()) {
+      this.addBooksToMem();
+    }
+  }
+
+  booksInMem() {
+    if(localStorage.getItem("books") !== null) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+
+  addBooksToMem() {
     localStorage.setItem("books",JSON.stringify(this.books));
+  }
+
+  getBooksFromMem() {
+    return JSON.parse(localStorage.getItem("books"));
   }
 }

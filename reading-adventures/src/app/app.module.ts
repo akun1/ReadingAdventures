@@ -9,6 +9,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { BookViewComponent } from './book-view/book-view.component';
 import { ReadingViewComponent } from './reading-view/reading-view.component';
 import { LibraryServiceService } from './library-service.service';
+import { SimpleAuthGuardService } from './simple-auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { LibraryServiceService } from './library-service.service';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [LibraryServiceService],
+  providers: [LibraryServiceService,SimpleAuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

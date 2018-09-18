@@ -39,13 +39,28 @@
     color: black;
 }
 
+.display-4 {
+    margin-bottom: 0;
+}
+
 /*-----------------------------------------------------------*/
+
+@media (max-width: 33em) {
+    .em-face_with_cowboy_hat {
+        height: 6vh;
+        width: 6vh;
+    }
+}
 
 @media (min-width: 34em) {
     .card-columns {
         -webkit-column-count: 2;
         -moz-column-count: 2;
         column-count: 2;
+    }
+    .em-face_with_cowboy_hat {
+        height: 7vh;
+        width: 7vh;
     }
 }
 
@@ -55,6 +70,11 @@
         -moz-column-count: 3;
         column-count: 3;
     }
+
+    .em-face_with_cowboy_hat {
+        height: 8vh;
+        width: 8vh;
+    }
 }
 
 @media (min-width: 62em) {
@@ -63,6 +83,11 @@
         -moz-column-count: 4;
         column-count: 4;
     }
+
+    .em-face_with_cowboy_hat {
+        height: 9vh;
+        width: 9vh;
+    }
 }
 
 @media (min-width: 75em) {
@@ -70,5 +95,10 @@
         -webkit-column-count: 5;
         -moz-column-count: 5;
         column-count: 5;
+    }
+
+    .em-face_with_cowboy_hat {
+        height: 10vh;
+        width: 10vh;
     }
 }

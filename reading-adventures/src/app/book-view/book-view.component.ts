@@ -13,7 +13,6 @@ export class BookViewComponent implements OnInit, OnDestroy {
 
   constructor(private _libraryService: LibraryServiceService) {
     if(this.booksInMem()) {
-      console.log('getting books from mem...');
       this.books = this.getBooksFromMem();
     }
     else {
@@ -33,7 +32,6 @@ export class BookViewComponent implements OnInit, OnDestroy {
   }
 
   bookClicked() {
-    console.log('book clicked');
     if(!this.booksInMem()) {
       this.addBooksToMem();
     }

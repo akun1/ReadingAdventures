@@ -11,11 +11,9 @@ export class SimpleAuthGuardService implements CanActivate {
 
   canActivate() {
     if(localStorage.getItem("books") !== null) {
-      console.log('mem full');
       return true;
     }
     else {
-      console.log('mem NOT full');
       this.router.navigate(['/books']);
       return false;
     }

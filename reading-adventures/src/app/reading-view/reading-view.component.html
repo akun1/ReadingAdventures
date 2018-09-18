@@ -1,7 +1,15 @@
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
-      <h1 class="display-4">{{currentBook.title}}</h1>
-      <h2 class="text-muted">{{currentBook.author}}</h2>
+      <div class="row header">
+        <div class="col-sm-2 thumbnail-row">
+          <img class="thumbnail" src={{currentBook.thumbnail_url}} alt={{currentBook.title}}>
+        </div>
+        <div class="col-sm-3 header-row">      
+          <h1 class="display-4">{{currentBook.title}}</h1>
+          <h2 class="text-muted">{{currentBook.author}}</h2></div>
+        <div class="col-sm-6"></div>
+      </div>
+
       <hr class="my-4">
     </div>
   </div>

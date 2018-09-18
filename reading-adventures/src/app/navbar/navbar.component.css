@@ -11,13 +11,14 @@
 
 #nav-read {
     pointer-events: none;
-    color: lightgray;
+    visibility: hidden;
 }
 
 .activated-link {
     background-color: white;
     border-radius: 20px;
     color: black !important;
+    visibility: visible !important;
 }
 
 .invisible-link {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Book } from '../book';
 import { GetBibleService } from '../get-bible.service';
+import { BibleEntry } from '../bible-entry';
 
 @Component({
   selector: 'app-reading-view',
@@ -12,11 +13,11 @@ export class ReadingViewComponent implements OnInit {
 
   id : string;
   currentBook : Book;
-  book_text : string;
+  bible_entry : BibleEntry;
 
   constructor(private route: ActivatedRoute, private router: Router, private _bibleService: GetBibleService) {
-    this._bibleService.bible_text$.subscribe(
-      (response) => { this.book_text = response; }
+    this._bibleService.bible_entry$.subscribe(
+      (response) => { this.bible_entry = response; }
     );
   }
 

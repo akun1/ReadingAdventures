@@ -12,18 +12,20 @@ export class BookViewComponent implements OnInit, OnDestroy {
   private books : Book[] = [];
 
   constructor(private _libraryService: LibraryServiceService) {
-    console.log('constructed');
-    this._libraryService.books$.subscribe((value) => {
-      this.books.push(value); 
-    });
+    if(localStorage.getItem("books") !== null) {
+      console.log('getting books from mem...');
+      this.books = JSON.parse(localStorage.getItem("books"));
+    }
+    else {
+      this._libraryService.books$.subscribe(
+        (response) => { this.books.push(response); }
+      );
+    }
   }
 
   ngOnInit() {
-    console.log('init-ed');
   }
 
   ngOnDestroy() {
-    console.log('destroyed');
-    //this._libraryService.books$.unsubscribe();
-  }
+    localStorage.setItem("books",JSON.stringify(this.books));
 }

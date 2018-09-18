@@ -1,7 +1,7 @@
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 class="display-4">Ready for an Adventure? <i class="em-svg em-face_with_cowboy_hat"></i></h1>
-    <p class="lead">Select one of our books and jump right in!</p>
+    <p class="lead" *ngIf="books?.length > 0">Select one of our {{books.length}} books and jump right in!</p>
     <hr class="my-4">
   </div>
 </div>

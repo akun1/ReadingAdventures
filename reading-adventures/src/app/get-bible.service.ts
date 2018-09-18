@@ -8,14 +8,13 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class GetBibleService {
-
-  private base_api_url : string = "http://getbible.net/json?";
-  bible_text;
-  public books$ = new Subject();
+  private base_api_url : string = "https://s3.amazonaws.com/reading-adventures-library/texts/";
+  private bible_query = "Bible.json";
+  public bible_text$ : Subject<string> = new Subject();
   
   constructor(private http: HttpClient) {
-    this.http.get(this.base_api_url + 'p=Jn3:1-35').subscribe((res) => {
-      this.bible_text = res;
+    this.http.get<string>(this.base_api_url + this.bible_query).subscribe((res) => {
+      this.bible_text$.next(res);
     });
   }
 }

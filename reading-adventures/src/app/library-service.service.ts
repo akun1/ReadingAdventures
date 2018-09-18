@@ -4,10 +4,6 @@ import { Book } from './book';
 import { Observable } from 'rxjs';
 import { Subject } from 'rxjs';
 
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
-
 @Injectable({
   providedIn: 'root'
 })

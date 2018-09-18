@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Book } from '../book';
+import { GetBibleService } from '../get-bible.service';
 
 @Component({
   selector: 'app-reading-view',
@@ -11,8 +12,13 @@ export class ReadingViewComponent implements OnInit {
 
   id : string;
   currentBook : Book;
+  book_text : string;
 
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  constructor(private route: ActivatedRoute, private router: Router, private _bibleService: GetBibleService) {
+    this._bibleService.bible_text$.subscribe(
+      (response) => { this.book_text = response; }
+    );
+  }
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');

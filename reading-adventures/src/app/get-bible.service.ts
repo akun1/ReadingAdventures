@@ -14,8 +14,10 @@ export class GetBibleService {
   public bible_entry$ : Subject<BibleEntry> = new Subject();
   
   constructor(private http: HttpClient) {
-    this.http.get<BibleEntry>(this.base_api_url + this.bible_query).subscribe((res) => {
-        this.bible_entry$.next(new BibleEntry(res['name'],res['chapters']));
+    this.http.get<[]>(this.base_api_url + this.bible_query).subscribe((res) => {
+        res.forEach(element => {
+          this.bible_entry$.next(new BibleEntry(element['name'], element['chapters']));
+        });
     });
   }
 }

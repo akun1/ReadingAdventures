@@ -13,19 +13,23 @@ export class ReadingViewComponent implements OnInit {
 
   id : string;
   currentBook : Book;
-  bible_entry : BibleEntry;
+  book_entry;
 
-  constructor(private route: ActivatedRoute, private router: Router, private _bibleService: GetBibleService) {
-    this._bibleService.bible_entry$.subscribe(
-      (response) => { this.bible_entry = response; }
-    );
-  }
+  constructor(private route: ActivatedRoute, private router: Router, private _bibleService: GetBibleService) {}
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
     var result = this.getBookWithId(this.id);
     if(result.title.length > 0) {
       this.currentBook = result;
+      if(this.currentBook.title == "Bible") {
+        this._bibleService.bible_entry$.subscribe(
+          (response) => {
+            this.book_entry = response;
+            console.log(response);
+          }
+        );
+      }
     }
     else {
       alert('We are sorry, there was an error. Please try again later.');
@@ -48,7 +52,18 @@ export class ReadingViewComponent implements OnInit {
   parseBibleJSON(json) {
     json.forEach(element => {
       console.log(element);
-    });;
+    });
+  }
+
+  displayBookText() {
+    if(this.book_entry !== null) {
+      if(this.currentBook.title == "Bible") {
+        console.log(this.book_entry);
+      }
+    }
+    else {
+      return 'No content yet.';
+    }
   }
 
 }

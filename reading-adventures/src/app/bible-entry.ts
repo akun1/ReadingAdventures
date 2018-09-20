@@ -1,6 +1,7 @@
 export class BibleEntry {
-    name : string;
-    chapters : Array<Array<string>>;
+    name : string[];
+    chapters : Array<Array<Array<string>>>;
+    text : string;
 
     constructor(name, chapters) {
         this.name = name;

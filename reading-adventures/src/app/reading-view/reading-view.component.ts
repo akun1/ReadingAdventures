@@ -26,7 +26,7 @@ export class ReadingViewComponent implements OnInit {
         this._bibleService.bible_entry$.subscribe(
           (response) => {
             this.book_entry = response;
-            console.log(response);
+            this.displayBookText();
           }
         );
       }
@@ -49,16 +49,10 @@ export class ReadingViewComponent implements OnInit {
     return found_book;
   }
 
-  parseBibleJSON(json) {
-    json.forEach(element => {
-      console.log(element);
-    });
-  }
-
   displayBookText() {
     if(this.book_entry !== null) {
       if(this.currentBook.title == "Bible") {
-        console.log(this.book_entry);
+        return this.book_entry.chapters;
       }
     }
     else {

@@ -4,6 +4,7 @@ import { Book } from '../book';
 import { GetBibleService } from '../get-bible.service';
 import { BibleEntry } from '../bible-entry';
 import { HostListener } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-reading-view',
@@ -16,9 +17,9 @@ export class ReadingViewComponent implements OnInit {
   currentBook : Book;
   book_entry;
   pageNumber : number = 1;
-  numLinesPerPage : number = 30;
   page;
   hidden : boolean = true;
+  x = [1,2,3,4];
 
   constructor(private route: ActivatedRoute, private router: Router, private _bibleService: GetBibleService) {}
 
@@ -99,6 +100,7 @@ export class ReadingViewComponent implements OnInit {
     if(this.book_entry !== null) {
       if(this.currentBook.title == "Bible") {
         if(this.pageNumber < 2) {
+          console.log('this is first page!');
         }
         else {
           this.pageNumber--;
@@ -111,12 +113,25 @@ export class ReadingViewComponent implements OnInit {
   nextPage() {
     if(this.book_entry !== null) {
       if(this.currentBook.title == "Bible") {
-        if(this.pageNumber == this.book_entry.chapters.length-1) {
+        if(this.pageNumber == this.book_entry.chapters.length) {
           console.log('this is the last page!');
         }
         else {
           this.pageNumber++;
           this.displayPage();
+        }
+      }
+    }
+  }
+
+  jumpToPage(pageNum) {
+    if(this.book_entry !== null) {
+      if(this.currentBook.title == "Bible") {
+        if(pageNum <= this.book_entry.chapters.length && pageNum >= 1) {
+          console.log(pageNum);
+          this.pageNumber = pageNum-1;
+          console.log(pageNum);
+          this.nextPage();
         }
       }
     }

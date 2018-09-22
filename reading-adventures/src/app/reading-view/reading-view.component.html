@@ -24,12 +24,18 @@
         <div class="BookText" [innerHtml]="page"></div>
         <div class="text-center text-muted">{{pageNumber}}</div>
       </div>
-      <div class="bookNaviButtonsTop">
+      <div class="row bookNaviButtonsTop">
         <button class="prevPage" (click)='previousPage()'>
           <i class="material-icons">
             arrow_back
           </i>
         </button>
+        <div class="dropdown">
+            <button class="nextPage btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{pageNumber}}</button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" *ngFor="let num of book_entry.chapters; let i=index" (click)="jumpToPage(i+1)">{{i+1}}</a>
+            </div>
+          </div>
         <button class="nextPage" (click)='nextPage()'>
           <i class="material-icons">
             arrow_forward

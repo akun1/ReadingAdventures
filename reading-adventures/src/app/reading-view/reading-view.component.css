@@ -66,6 +66,10 @@
     padding: 0;
 }
 
+.dropdown-item:hover {
+    background-color: #4267b2;
+}
+
 .bookNaviButtonsTop {
     position: absolute;
     right: 5vw;
@@ -109,7 +113,12 @@
     .reading-slab {
         margin-left: 1rem;
         margin-right: 1rem;
-    }    
+    }
+    .nextPage, .prevPage, #backToTop, .pageNumBetweenArrows {
+        width: 2rem;
+        height: 2rem;
+        font-size: 60%;
+    }
 }
 
 @media (min-width: 34em) {
@@ -117,6 +126,12 @@
         margin-left: 2rem;
         margin-right: 2rem;
     }  
+    .nextPage, .prevPage, #backToTop, .pageNumBetweenArrows {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 70%;
+        margin-right: 0.5rem;
+    }
 }
 
 @media (min-width: 48em) {
@@ -124,6 +139,12 @@
         margin-left: 3rem;
         margin-right: 3rem;
     }  
+    .nextPage, .prevPage, #backToTop, .pageNumBetweenArrows {
+        width: 3rem;
+        height: 3rem;
+        font-size: 80%;
+        margin-right: 0.5rem;
+    }
 }
 
 @media (min-width: 62em) {
@@ -131,11 +152,23 @@
         margin-left: 3rem;
         margin-right: 3rem;
     }  
+    .nextPage, .prevPage, #backToTop, .pageNumBetweenArrows {
+        width: 4rem;
+        height: 4rem;
+        font-size: 90%;
+        margin-right: 0.5rem;
+    }
 }
 
 @media (min-width: 75em) {
     .reading-slab {
-        margin-left: 3rem;
-        margin-right: 3rem;
+        margin-left: 4rem;
+        margin-right: 4rem;
     }  
+    .nextPage, .prevPage, #backToTop, .pageNumBetweenArrows {
+        width: 4.5rem;
+        height: 4.5rem;
+        font-size: 100%;
+        margin-right: 0.5rem;
+    }
 }

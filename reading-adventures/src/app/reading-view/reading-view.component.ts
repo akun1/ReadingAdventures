@@ -14,7 +14,9 @@ export class ReadingViewComponent implements OnInit {
   id : string;
   currentBook : Book;
   book_entry;
-  entirePrettyText : string;
+  pageNumber : number = 1;
+  numLinesPerPage : number = 30;
+  page;
 
   constructor(private route: ActivatedRoute, private router: Router, private _bibleService: GetBibleService) {}
 
@@ -26,14 +28,14 @@ export class ReadingViewComponent implements OnInit {
       if(this.currentBook.title == "Bible") {
         if(this.currentBookEntryInMem()) {
           this.book_entry = this.getCurrentBookEntryFromMem();
-          this.displayBookText();
+          this.displayPage();
         }
         else {
           this._bibleService.bible_entry$.subscribe(
             (response) => {
               this.book_entry = response;
               this.addBookEntryToMem();
-              this.displayBookText();
+              this.displayPage();
             }
           );
         }
@@ -74,35 +76,40 @@ export class ReadingViewComponent implements OnInit {
     return JSON.parse(localStorage.getItem("current_book_entry"));
   }
 
-  displayBookText() {
+  displayPage() {
     if(this.book_entry !== null) {
       if(this.currentBook.title == "Bible") {
-        var tries = 0;
-        while(tries < 3) {
-          tries += 1;
-          console.log(tries);
-          try {
-            var line = '';
-            this.book_entry.chapters.forEach(element => {
-              element.forEach(sentence => {
-                line = '<p class=\"line\">' + sentence + '</p>';
-                this.entirePrettyText += line;
-                console.log(line);
-              });
-            });
-            console.log('returning pretty text now!');
-            return this.entirePrettyText;
-          }
-          catch(err) {
-            return 'No content yet.';
-          }
-        }
+        this.page = this.book_entry.chapters[this.pageNumber-1];
       }
-      return 'No content yet.'
-    }
-    else {
-      return 'No content yet.';
     }
   }
 
+  previousPage() {
+    if(this.book_entry !== null) {
+      if(this.currentBook.title == "Bible") {
+        if(this.pageNumber < 2) {
+          console.log('this is the first page!');
+        }
+        else {
+          this.pageNumber--;
+          this.displayPage();
+          console.log(this.pageNumber);
+        }
+      }
+    }
+  }
+  nextPage() {
+    if(this.book_entry !== null) {
+      if(this.currentBook.title == "Bible") {
+        if(this.pageNumber == this.book_entry.chapters.length-1) {
+          console.log('this is the last page!');
+        }
+        else {
+          this.pageNumber++;
+          this.displayPage();
+          console.log(this.pageNumber);
+        }
+      }
+    }
+  }
 }

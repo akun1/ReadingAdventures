@@ -80,6 +80,11 @@ export class ReadingViewComponent implements OnInit {
     if(this.book_entry !== null) {
       if(this.currentBook.title == "Bible") {
         this.page = this.book_entry.chapters[this.pageNumber-1];
+        var tempPage;
+        this.page.forEach(line => {
+          tempPage += '<p class=\"line\">' + line + '</p>';
+        });
+        this.page = tempPage;
       }
     }
   }
@@ -98,6 +103,7 @@ export class ReadingViewComponent implements OnInit {
       }
     }
   }
+
   nextPage() {
     if(this.book_entry !== null) {
       if(this.currentBook.title == "Bible") {

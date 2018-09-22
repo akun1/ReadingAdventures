@@ -47,3 +47,7 @@
     font-style: italic;
     width: 30vw;
 }
+
+.line {
+    color: red;
+}

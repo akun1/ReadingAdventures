@@ -14,6 +14,7 @@ export class ReadingViewComponent implements OnInit {
   id : string;
   currentBook : Book;
   book_entry;
+  entirePrettyText : string;
 
   constructor(private route: ActivatedRoute, private router: Router, private _bibleService: GetBibleService) {}
 
@@ -25,12 +26,14 @@ export class ReadingViewComponent implements OnInit {
       if(this.currentBook.title == "Bible") {
         if(this.currentBookEntryInMem()) {
           this.book_entry = this.getCurrentBookEntryFromMem();
+          this.displayBookText();
         }
         else {
           this._bibleService.bible_entry$.subscribe(
             (response) => {
               this.book_entry = response;
               this.addBookEntryToMem();
+              this.displayBookText();
             }
           );
         }
@@ -77,7 +80,14 @@ export class ReadingViewComponent implements OnInit {
         while(true) {
           console.log('trying to load');
           try {
-            return this.book_entry.chapters;
+            var line = '';
+            this.book_entry.chapters.forEach(element => {
+              element.forEach(sentence => {
+                line = '<p class=\"line\">' + sentence + '</p>';
+                this.entirePrettyText += line;
+              });
+            });
+            return this.entirePrettyText;
           }
           catch(err) {
             console.log('there was err with try' + err);

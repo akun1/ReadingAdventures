@@ -41,6 +41,10 @@
     font-size: 19px;
 }
 
+.line {
+    border: 1px solid red;
+}
+
 .jumbotron {
     background-color: transparent;
     margin-bottom: 1rem;

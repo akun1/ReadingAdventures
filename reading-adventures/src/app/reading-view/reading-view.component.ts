@@ -91,7 +91,7 @@ export class ReadingViewComponent implements OnInit {
         this.page = this.book_entry.chapters[this.pageNumber-1];
         var tempPage;
         this.page.forEach(line => {
-          tempPage += '<p class=\"line\">' + line + '</p>';
+          tempPage += '<div id=\"line\"><p>' + line + '</p></div>';
         });
         this.page = tempPage;
       }

@@ -19,6 +19,18 @@
     box-shadow: 0px 3px 15px rgba(0,0,0,0.25);
 }
 
+.reading-slab {
+    background-color: white;
+    box-shadow: 0px 3px 3px rgba(0,0,0,0.35);
+    border-radius: 3px;
+    padding: 2rem;
+    padding-top: 4rem;
+    margin-top: 2vh;
+    margin-bottom: 8vh;
+    font-family: 'Noto Serif JP', sans-serif;
+    font-size: 19px;
+}
+
 .jumbotron {
     background-color: transparent;
     margin-bottom: 1rem;
@@ -28,18 +40,6 @@
 .thumbnail {
     width: 100%;
     border-radius: 5px;
-}
-
-.reading-slab {
-    background-color: white;
-    box-shadow: 0px 3px 3px rgba(0,0,0,0.35);
-    border-radius: 3px;
-    margin-top: 2vh;
-    padding: 2rem;
-    padding-top: 4rem;
-    margin-bottom: 8vh;
-    font-family: 'Noto Serif JP', sans-serif;
-    font-size: 19px;
 }
 
 .header-summary {
@@ -53,6 +53,8 @@
     right: 5vw;
     bottom: 5vh;
     border: none;
+    margin: 0;
+    padding: 0;
 }
 
 .bookNaviButtonsTop {
@@ -60,6 +62,7 @@
     right: 5vw;
     top: 5vh;
     border: none;
+    margin-right: 1rem;
 }
 
 .nextPage, .prevPage, #backToTop {
@@ -80,4 +83,46 @@
     color: #4267b2;
     background-color: white;
     border: 1px solid #29487d;
+}
+
+.material-icons {
+    margin: 0;
+    padding: 0;
+}
+
+/*-----------------------------------------------------------*/
+
+@media (max-width: 33em) {
+    .reading-slab {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }    
+}
+
+@media (min-width: 34em) {
+    .reading-slab {
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }  
+}
+
+@media (min-width: 48em) {
+    .reading-slab {
+        margin-left: 3rem;
+        margin-right: 3rem;
+    }  
+}
+
+@media (min-width: 62em) {
+    .reading-slab {
+        margin-left: 3rem;
+        margin-right: 3rem;
+    }  
+}
+
+@media (min-width: 75em) {
+    .reading-slab {
+        margin-left: 3rem;
+        margin-right: 3rem;
+    }  
 }

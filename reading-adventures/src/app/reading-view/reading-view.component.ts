@@ -77,20 +77,23 @@ export class ReadingViewComponent implements OnInit {
   displayBookText() {
     if(this.book_entry !== null) {
       if(this.currentBook.title == "Bible") {
-        while(true) {
-          console.log('trying to load');
+        var tries = 0;
+        while(tries < 3) {
+          tries += 1;
+          console.log(tries);
           try {
             var line = '';
             this.book_entry.chapters.forEach(element => {
               element.forEach(sentence => {
                 line = '<p class=\"line\">' + sentence + '</p>';
                 this.entirePrettyText += line;
+                console.log(line);
               });
             });
+            console.log('returning pretty text now!');
             return this.entirePrettyText;
           }
           catch(err) {
-            console.log('there was err with try' + err);
             return 'No content yet.';
           }
         }

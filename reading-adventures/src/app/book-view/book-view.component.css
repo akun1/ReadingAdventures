@@ -29,6 +29,10 @@
     object-fit: cover;
 }
 
+.card-footer {
+    display: none;
+}
+
 .jumbotron {
     background-color: transparent;
     margin-bottom: 1rem;

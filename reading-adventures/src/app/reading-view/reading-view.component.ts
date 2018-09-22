@@ -23,12 +23,17 @@ export class ReadingViewComponent implements OnInit {
     if(result.title.length > 0) {
       this.currentBook = result;
       if(this.currentBook.title == "Bible") {
-        this._bibleService.bible_entry$.subscribe(
-          (response) => {
-            this.book_entry = response;
-            this.displayBookText();
-          }
-        );
+        if(this.currentBookEntryInMem()) {
+          this.book_entry = this.getCurrentBookEntryFromMem();
+        }
+        else {
+          this._bibleService.bible_entry$.subscribe(
+            (response) => {
+              this.book_entry = response;
+              this.addBookEntryToMem();
+            }
+          );
+        }
       }
     }
     else {
@@ -49,11 +54,38 @@ export class ReadingViewComponent implements OnInit {
     return found_book;
   }
 
+  currentBookEntryInMem() {
+    if(localStorage.getItem("current_book_entry") !== null) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+
+  addBookEntryToMem() {
+    localStorage.setItem("current_book_entry",JSON.stringify(this.book_entry));
+  }
+
+  getCurrentBookEntryFromMem() {
+    return JSON.parse(localStorage.getItem("current_book_entry"));
+  }
+
   displayBookText() {
     if(this.book_entry !== null) {
       if(this.currentBook.title == "Bible") {
-        return this.book_entry.chapters;
+        while(true) {
+          console.log('trying to load');
+          try {
+            return this.book_entry.chapters;
+          }
+          catch(err) {
+            console.log('there was err with try' + err);
+            return 'No content yet.';
+          }
+        }
       }
+      return 'No content yet.'
     }
     else {
       return 'No content yet.';

@@ -19,8 +19,16 @@
     <div class="col-sm-1"></div>
     <div class="col-sm-10">
       <div class="reading-slab">
-        {{displayBookText()}}
+        <h2>Chapter {{pageNumber}}: </h2>
+        <div class="BookText" [innerHtml]="page"></div>
       </div>
+      <div class="bookNaviButtonsTop">
+        <button class="nextPage" (click)='previousPage()'>Previous Page</button>
+        <button class="prevPage" (click)='nextPage()'>Next Page</button>
+      </div>
+        <button id="backToTop" (click)='backToTop()'><i class="material-icons">
+            arrow_upward
+            </i></button>
     </div>
     <div class="col-sm-1"></div>
   </div>

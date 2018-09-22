@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Book } from '../book';
 import { GetBibleService } from '../get-bible.service';
 import { BibleEntry } from '../bible-entry';
+import { HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-reading-view',
@@ -14,6 +15,9 @@ export class ReadingViewComponent implements OnInit {
   id : string;
   currentBook : Book;
   book_entry;
+  pageNumber : number = 1;
+  numLinesPerPage : number = 30;
+  page;
 
   constructor(private route: ActivatedRoute, private router: Router, private _bibleService: GetBibleService) {}
 
@@ -23,12 +27,19 @@ export class ReadingViewComponent implements OnInit {
     if(result.title.length > 0) {
       this.currentBook = result;
       if(this.currentBook.title == "Bible") {
-        this._bibleService.bible_entry$.subscribe(
-          (response) => {
-            this.book_entry = response;
-            this.displayBookText();
-          }
-        );
+        if(this.currentBookEntryInMem()) {
+          this.book_entry = this.getCurrentBookEntryFromMem();
+          this.displayPage();
+        }
+        else {
+          this._bibleService.bible_entry$.subscribe(
+            (response) => {
+              this.book_entry = response;
+              this.addBookEntryToMem();
+              this.displayPage();
+            }
+          );
+        }
       }
     }
     else {
@@ -49,15 +60,83 @@ export class ReadingViewComponent implements OnInit {
     return found_book;
   }
 
-  displayBookText() {
-    if(this.book_entry !== null) {
-      if(this.currentBook.title == "Bible") {
-        return this.book_entry.chapters;
-      }
+  currentBookEntryInMem() {
+    if(localStorage.getItem("current_book_entry") !== null) {
+      return true;
     }
     else {
-      return 'No content yet.';
+      return false;
     }
   }
 
+  addBookEntryToMem() {
+    localStorage.setItem("current_book_entry",JSON.stringify(this.book_entry));
+  }
+
+  getCurrentBookEntryFromMem() {
+    return JSON.parse(localStorage.getItem("current_book_entry"));
+  }
+
+  displayPage() {
+    if(this.book_entry !== null) {
+      if(this.currentBook.title == "Bible") {
+        this.page = this.book_entry.chapters[this.pageNumber-1];
+        var tempPage;
+        this.page.forEach(line => {
+          tempPage += '<p class=\"line\">' + line + '</p>';
+        });
+        this.page = tempPage;
+      }
+    }
+  }
+
+  previousPage() {
+    if(this.book_entry !== null) {
+      if(this.currentBook.title == "Bible") {
+        if(this.pageNumber < 2) {
+          console.log('this is the first page!');
+        }
+        else {
+          this.pageNumber--;
+          this.displayPage();
+          console.log(this.pageNumber);
+        }
+      }
+    }
+  }
+
+  nextPage() {
+    if(this.book_entry !== null) {
+      if(this.currentBook.title == "Bible") {
+        if(this.pageNumber == this.book_entry.chapters.length-1) {
+          console.log('this is the last page!');
+        }
+        else {
+          this.pageNumber++;
+          this.displayPage();
+          console.log(this.pageNumber);
+        }
+      }
+    }
+  }
+
+  @HostListener("window:scroll", [])
+  onScroll(): void {
+    this.scrollFunction();
+  }
+
+  scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          document.getElementById("backToTop").style.display = "block";
+      } else {
+          document.getElementById("backToTop").style.display = "none";
+      }
+  }
+
+  backToTop() {
+      document.body.scrollTop = 0; 
+      document.documentElement.scrollTop = 0; 
+  }
+
 }
+

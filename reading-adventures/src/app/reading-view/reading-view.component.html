@@ -22,8 +22,11 @@
         <h2>Chapter {{pageNumber}}: </h2>
         <div class="BookText" [innerHtml]="page"></div>
       </div>
-      <a (click)='previousPage()'>Previous Page</a><br>
-      <a (click)='nextPage()'>Next Page</a>
+      <div class="bookNaviButtonsTop">
+        <button class="nextPage" (click)='previousPage()'>Previous Page</button>
+        <button class="prevPage" (click)='nextPage()'>Next Page</button>
+      </div>
+        <button id="backToTop" (click)='backToTop()'>Back to Top</button>
     </div>
     <div class="col-sm-1"></div>
   </div>

@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Book } from '../book';
 import { GetBibleService } from '../get-bible.service';
 import { BibleEntry } from '../bible-entry';
+import { HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-reading-view',
@@ -118,4 +119,24 @@ export class ReadingViewComponent implements OnInit {
       }
     }
   }
+
+  @HostListener("window:scroll", [])
+  onScroll(): void {
+    this.scrollFunction();
+  }
+
+  scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          document.getElementById("backToTop").style.display = "block";
+      } else {
+          document.getElementById("backToTop").style.display = "none";
+      }
+  }
+
+  backToTop() {
+      document.body.scrollTop = 0; 
+      document.documentElement.scrollTop = 0; 
+  }
+
 }
+

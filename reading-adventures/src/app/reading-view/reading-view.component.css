@@ -48,6 +48,36 @@
     width: 30vw;
 }
 
-.line {
-    color: red;
+#backToTop {
+    position: absolute;
+    right: 5vw;
+    bottom: 5vh;
+    border: none;
+}
+
+.bookNaviButtonsTop {
+    position: absolute;
+    right: 5vw;
+    top: 5vh;
+    border: none;
+}
+
+.nextPage, .prevPage, #backToTop {
+    font-size: 1rem;
+    outline:none;
+    color: white;
+    background-color: #4267b2;
+    border-bottom: 1px solid #29487d;
+    border-radius: 3px;
+    margin: 5px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: none;
+}
+
+.nextPage:hover, .prevPage:hover, #backToTop:hover {
+    color: #4267b2;
+    background-color: white;
+    border: 1px solid #29487d;
 }

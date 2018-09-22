@@ -21,6 +21,11 @@
       <div class="reading-slab">
         <h2>Chapter {{pageNumber}} </h2>
         <hr class="my-4">
+        <button id="backToBooks" routerLink="">
+            <i class="material-icons">
+              keyboard_return
+            </i>
+          </button>
         <div class="BookText" [innerHtml]="page"></div>
         <div class="text-center text-muted">{{pageNumber}}</div>
       </div>
@@ -51,5 +56,7 @@
     <div class="col-sm-1"></div>
   </div>
   <div class="row">
-      <div class="col-sm-6 offset-sm-3 text-center text-muted noContent" [hidden]="!hidden">More adventure coming soon!</div>
+      <div class="col-sm-6 offset-sm-3 text-center text-muted noContent" routerLink="" [hidden]="!hidden">
+        More adventure coming soon!<br><i class="material-icons sorryBackButton">keyboard_return</i>
+      </div>
   </div>

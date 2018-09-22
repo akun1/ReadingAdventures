@@ -102,7 +102,7 @@ export class ReadingViewComponent implements OnInit {
     if(this.book_entry !== null) {
       if(this.currentBook.title == "Bible") {
         if(this.pageNumber < 2) {
-          console.log('this is first page!');
+          alert('This is the first page of '+ this.currentBook.title +'!');
         }
         else {
           this.pageNumber--;
@@ -116,7 +116,7 @@ export class ReadingViewComponent implements OnInit {
     if(this.book_entry !== null) {
       if(this.currentBook.title == "Bible") {
         if(this.pageNumber == this.book_entry.chapters.length) {
-          console.log('this is the last page!');
+          alert('This is the last page of '+ this.currentBook.title +'!');
         }
         else {
           this.pageNumber++;
@@ -130,9 +130,7 @@ export class ReadingViewComponent implements OnInit {
     if(this.book_entry !== null) {
       if(this.currentBook.title == "Bible") {
         if(pageNum <= this.book_entry.chapters.length && pageNum >= 1) {
-          console.log(pageNum);
           this.pageNumber = pageNum-1;
-          console.log(pageNum);
           this.nextPage();
         }
       }

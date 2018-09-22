@@ -66,6 +66,14 @@
     padding: 0;
 }
 
+#backToBooks {
+    position: absolute;
+    left: 3vw;
+    top: 0;
+    margin: 0;
+    padding: 0;
+}
+
 .dropdown-item:hover {
     background-color: #4267b2;
 }
@@ -78,7 +86,7 @@
     margin-right: 1rem;
 }
 
-.nextPage, .prevPage, #backToTop {
+.nextPage, .prevPage, #backToTop, #backToBooks {
     width: 4rem;
     height: 4rem;
     border-radius: 50%!important;
@@ -96,8 +104,8 @@
     border: none;
 }
 
-.nextPage:hover, .prevPage:hover, #backToTop:hover {
-    color: #4267b2;
+.nextPage:hover, .prevPage:hover, #backToTop:hover, #backToBooks:hover, .noContent:hover  {
+    color: #4267b2!important;
     background-color: white;
     border: 1px solid #29487d;
 }
@@ -105,6 +113,11 @@
 .material-icons {
     margin: 0;
     padding: 0;
+    outline: 0;
+}
+
+.sorryBackButton {
+    font-size: 3rem;
 }
 
 /*-----------------------------------------------------------*/

@@ -15,20 +15,35 @@
       <hr class="my-4">
     </div>
   </div>
-  <div class="row">
+  <div class="row" [hidden]="hidden">
     <div class="col-sm-1"></div>
     <div class="col-sm-10">
       <div class="reading-slab">
         <h2>Chapter {{pageNumber}}: </h2>
+        <hr class="my-4">
         <div class="BookText" [innerHtml]="page"></div>
+        <div class="text-center text-muted">{{pageNumber}}</div>
       </div>
       <div class="bookNaviButtonsTop">
-        <button class="nextPage" (click)='previousPage()'>Previous Page</button>
-        <button class="prevPage" (click)='nextPage()'>Next Page</button>
+        <button class="prevPage" (click)='nextPage()'>
+          <i class="material-icons">
+            arrow_back
+          </i>
+        </button>
+        <button class="nextPage" (click)='previousPage()'>
+          <i class="material-icons">
+            arrow_forward
+          </i>
+        </button>
       </div>
-        <button id="backToTop" (click)='backToTop()'><i class="material-icons">
+        <button id="backToTop" (click)='backToTop()'>
+          <i class="material-icons">
             arrow_upward
-            </i></button>
+          </i>
+        </button>
     </div>
     <div class="col-sm-1"></div>
+  </div>
+  <div class="row">
+      <div class="col-sm-6 offset-sm-3 text-center text-muted noContent" [hidden]="!hidden">More adventure coming soon!</div>
   </div>

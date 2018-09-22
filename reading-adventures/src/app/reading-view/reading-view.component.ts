@@ -18,6 +18,7 @@ export class ReadingViewComponent implements OnInit {
   pageNumber : number = 1;
   numLinesPerPage : number = 30;
   page;
+  hidden : boolean = true;
 
   constructor(private route: ActivatedRoute, private router: Router, private _bibleService: GetBibleService) {}
 
@@ -27,9 +28,11 @@ export class ReadingViewComponent implements OnInit {
     if(result.title.length > 0) {
       this.currentBook = result;
       if(this.currentBook.title == "Bible") {
+        this.hidden = false;
         if(this.currentBookEntryInMem()) {
           this.book_entry = this.getCurrentBookEntryFromMem();
           this.displayPage();
+          this.backToTop();
         }
         else {
           this._bibleService.bible_entry$.subscribe(
@@ -37,10 +40,12 @@ export class ReadingViewComponent implements OnInit {
               this.book_entry = response;
               this.addBookEntryToMem();
               this.displayPage();
+              this.backToTop();
             }
           );
         }
       }
+      this.displayPage();
     }
     else {
       alert('We are sorry, there was an error. Please try again later.');
@@ -94,12 +99,10 @@ export class ReadingViewComponent implements OnInit {
     if(this.book_entry !== null) {
       if(this.currentBook.title == "Bible") {
         if(this.pageNumber < 2) {
-          console.log('this is the first page!');
         }
         else {
           this.pageNumber--;
           this.displayPage();
-          console.log(this.pageNumber);
         }
       }
     }
@@ -114,7 +117,6 @@ export class ReadingViewComponent implements OnInit {
         else {
           this.pageNumber++;
           this.displayPage();
-          console.log(this.pageNumber);
         }
       }
     }

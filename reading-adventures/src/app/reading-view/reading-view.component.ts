@@ -18,8 +18,8 @@ export class ReadingViewComponent implements OnInit {
   book_entry;
   pageNumber : number = 1;
   page;
+  chapters;
   hidden : boolean = true;
-  x = [1,2,3,4];
 
   constructor(private route: ActivatedRoute, private router: Router, private _bibleService: GetBibleService) {}
 
@@ -32,6 +32,7 @@ export class ReadingViewComponent implements OnInit {
         this.hidden = false;
         if(this.currentBookEntryInMem()) {
           this.book_entry = this.getCurrentBookEntryFromMem();
+          this.chapters = this.book_entry.chapters;
           this.displayPage();
           this.backToTop();
         }
@@ -40,6 +41,7 @@ export class ReadingViewComponent implements OnInit {
             (response) => {
               this.book_entry = response;
               this.addBookEntryToMem();
+              this.chapters = this.book_entry.chapters;
               this.displayPage();
               this.backToTop();
             }

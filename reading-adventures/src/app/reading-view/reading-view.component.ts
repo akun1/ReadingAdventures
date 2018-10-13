@@ -18,6 +18,7 @@ export class ReadingViewComponent implements OnInit {
   book_entry;
   pageNumber : number = 1;
   page;
+  section_name;
   chapters;
   hidden : boolean = true;
 
@@ -37,15 +38,12 @@ export class ReadingViewComponent implements OnInit {
           this.backToTop();
         }
         else {
-          this._bibleService.bible_entry$.subscribe(
-            (response) => {
-              this.book_entry = response;
-              this.addBookEntryToMem();
-              this.chapters = this.book_entry.chapters;
-              this.displayPage();
-              this.backToTop();
-            }
-          );
+          this.book_entry = this._bibleService.bible_entry$[0];
+          this.addBookEntryToMem();
+          this.section_name = this.book_entry["name"]
+          this.chapters = this.book_entry["chapters"];
+          this.displayPage();
+          this.backToTop();
         }
       }
       this.displayPage();
@@ -89,9 +87,10 @@ export class ReadingViewComponent implements OnInit {
     if(this.book_entry !== null) {
       if(this.currentBook.title == "Bible") {
         this.page = this.book_entry.chapters[this.pageNumber-1];
-        var tempPage;
+        var tempPage : String[] = [];
+        this.section_name = this.book_entry["name"]
         this.page.forEach(line => {
-          tempPage += '<div id=\"line\"><p>' + line + '</p></div>';
+          tempPage.push(line);
         });
         this.page = tempPage;
       }

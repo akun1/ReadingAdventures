@@ -26,10 +26,10 @@
               keyboard_return
             </i>
           </button>
-        <div class="BookText">
-          <p *ngFor="let line of page">
-            {{line}}
-          </p>
+        <div class="BookText" *ngIf="router.url == '/read/3'">
+          <!--vvvvvvvTHIS AREA IS FOR PAGE VIEW WHERE ALL TEXT / REFS WILL BEvvvvvvvv-->
+
+          <!--^^^^^^THIS AREA IS FOR PAGE VIEW WHERE ALL TEXT / REFS WILL BE^^^^^^-->
         </div>
         <div class="text-center text-muted">{{pageNumber}}</div>
       </div>

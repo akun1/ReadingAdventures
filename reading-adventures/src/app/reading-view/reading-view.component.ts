@@ -22,7 +22,7 @@ export class ReadingViewComponent implements OnInit {
   chapters;
   hidden : boolean = true;
 
-  constructor(private route: ActivatedRoute, public router: Router, private _bibleService: GetBibleService) {}
+  constructor(private route: ActivatedRoute, private router: Router, private _bibleService: GetBibleService) {}
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
@@ -90,8 +90,7 @@ export class ReadingViewComponent implements OnInit {
         var tempPage : String[] = [];
         this.section_name = this.book_entry["name"]
         this.page.forEach(line => {
-          let lineWithHTML = line;
-          tempPage.push(lineWithHTML);
+          tempPage.push(line);
         });
         this.page = tempPage;
       }

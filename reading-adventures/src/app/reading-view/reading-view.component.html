@@ -110,7 +110,14 @@
             
           </p>
           
+
+
           <!--^^^^^^THIS AREA IS FOR PAGE VIEW WHERE ALL TEXT / REFS WILL BE^^^^^^-->
+          <body style="text-align:center">
+            <div class="popup" (click)="PopUpFunction()">Click me to toggle the popup!
+              <span class="popuptext" id="myPopup"><a href='https://www.youtube.com/watch?v=PAfnF5RqKol'>Video</a></span>
+            </div>
+          </body>
         </div>
         <div class="text-center text-muted">{{pageNumber}}</div>
       </div>
@@ -132,6 +139,7 @@
           </i>
         </button>
     </div>
+    <div id="map" style="width:100%;height:500px"></div>
     <div class="col-sm-1"></div>
   </div>
   <div class="row">

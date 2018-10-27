@@ -183,5 +183,10 @@ export class ReadingViewComponent implements OnInit {
       document.documentElement.scrollTop = 0; 
   }
 
+  PopUpFunction() {
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+  }
+  
 }
 

@@ -19,7 +19,30 @@
     <div class="col-sm-1"></div>
     <div class="col-sm-10">
       <div class="reading-slab">
-        <h2>{{section_name}}: Chapter {{pageNumber}} </h2>
+
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <h2>{{currentBookName}}</h2>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Genesis</a>
+            <a class="dropdown-item" href="#">Exodus</a>
+            <a class="dropdown-item" href="#">Leviticus</a>
+            <a class="dropdown-item" href="#">Numbers</a>
+            <a class="dropdown-item" href="#">Deuteronomy</a>
+            <a class="dropdown-item" href="#">Joshua</a>
+            <a class="dropdown-item" href="#">Judges</a>
+            <a class="dropdown-item" href="#">Matthew</a>
+            <a class="dropdown-item" (click)="switchText()">{{page2["book"]}}</a>
+            <a class="dropdown-item" href="#">Luke</a>
+            <a class="dropdown-item" href="#">John</a>
+            <a class="dropdown-item" href="#">Acts</a>
+            <a class="dropdown-item" href="#">Revelation</a>
+          </div>
+        </div>
+
+
+
         <hr class="my-4">
         <button id="backToBooks" routerLink="">
             <i class="material-icons">
@@ -28,6 +51,64 @@
           </button>
         <div class="BookText" *ngIf="router.url == '/read/3'">
           <!--vvvvvvvTHIS AREA IS FOR PAGE VIEW WHERE ALL TEXT / REFS WILL BEvvvvvvvv-->
+          
+          <p id="entire-genesis">
+            [1:1] In the beginning when God created the heavens and the earth,<br>
+            [1:2] the earth was a formless void and darkness covered the face of the deep, while a wind from God swept over the face of the waters.
+            [1:3] Then God said, "Let there be light"; and there was light.
+            [1:4] And God saw that the light was good; and God separated the light from the darkness.
+            [1:5] God called the light Day, and the darkness he called Night. And there was evening and there was morning, the first day.
+            [1:6] And God said, "Let there be a dome in the midst of the waters, and let it separate the waters from the waters."
+            [1:7] So God made the dome and separated the waters that were under the dome from the waters that were above the dome. And it was so.
+            [1:8] God called the dome Sky. And there was evening and there was morning, the second day.
+            [1:9] And God said, "Let the waters under the sky be gathered together into one place, and let the dry land appear." And it was so.
+            [1:10] God called the dry land Earth, and the waters that were gathered together he called Seas. And God saw that it was good.
+            [1:11] Then God said, "Let the earth put forth vegetation: plants yielding seed, and fruit trees of every kind on earth that bear fruit with the seed in it." And it was so.
+            [1:12] The earth brought forth vegetation: plants yielding seed of every kind, and trees of every kind bearing fruit with the seed in it. And God saw that it was good.
+            [1:13] And there was evening and there was morning, the third day.
+            [1:14] And God said, "Let there be lights in the dome of the sky to separate the day from the night; and let them be for signs and for seasons and for days and years,
+            [1:15] and let them be lights in the dome of the sky to give light upon the earth." And it was so.
+            [1:16] God made the two great lights - the greater light to rule the day and the lesser light to rule the night - and the stars.
+            [1:17] God set them in the dome of the sky to give light upon the earth,
+            [1:18] to rule over the day and over the night, and to separate the light from the darkness. And God saw that it was good.
+            [1:19] And there was evening and there was morning, the fourth day.
+            [1:20] And God said, "Let the waters bring forth swarms of living creatures, and let birds fly above the earth across the dome of the sky."
+            [1:21] So God created the great sea monsters and every living creature that moves, of every kind, with which the waters swarm, and every winged bird of every kind. And God saw that it was good.
+            [1:22] God blessed them, saying, "Be fruitful and multiply and fill the waters in the seas, and let birds multiply on the earth."
+            [1:23] And there was evening and there was morning, the fifth day.
+            [1:24] And God said, "Let the earth bring forth living creatures of every kind: cattle and creeping things and wild animals of the earth of every kind." And it was so.
+            [1:25] God made the wild animals of the earth of every kind, and the cattle of every kind, and everything that creeps upon the ground of every kind. And God saw that it was good.
+            [1:26] Then God said, "Let us make humankind in our image, according to our likeness; and let them have dominion over the fish of the sea, and over the birds of the air, and over the cattle, and over all the wild animals of the earth, and over every creeping thing that creeps upon the earth."
+            [1:27] So God created humankind in his image, in the image of God he created them; male and female he created them.
+            [1:28] God blessed them, and God said to them, "Be fruitful and multiply, and fill the earth and subdue it; and have dominion over the fish of the sea and over the birds of the air and over every living thing that moves upon the earth."
+            [1:29] God said, "See, I have given you every plant yielding seed that is upon the face of all the earth, and every tree with seed in its fruit; you shall have them for food.
+            [1:30] And to every beast of the earth, and to every bird of the air, and to everything that creeps on the earth, everything that has the breath of life, I have given every green plant for food." And it was so.
+            [1:31] God saw everything that he had made, and indeed, it was very good. And there was evening and there was morning, the sixth day.
+          </p>
+
+          <p class="text-hidden" id="entire-mark">
+
+              John the Baptist Prepares the Way
+              1 The beginning of the gospel of Jesus Christ, the Son of God. 2 As it is written in Isaiah the prophet,"Behold, I send my messenger before your face, who will prepare your way, 3 the voice of one crying in the wilderness: 'Prepare the way of the Lord, make his paths straight,'" 4 John appeared, baptizing in the wilderness and proclaiming a baptism of repentance for the forgiveness of sins. 5 And all the country of Judea and all Jerusalem were going out to him and were being baptized by him in the river Jordan, confessing their sins. 6 Now John was clothed with camel's hair and wore a leather belt around his waist and ate locusts and wild honey. 7 And he preached, saying, "After me comes he who is mightier than I, the strap of whose sandals I am not worthy to stoop down and untie. 8 I have baptized you with water, but he will baptize you with the Holy Spirit."
+              The Baptism of Jesus
+              9 In those days Jesus came from Nazareth of Galilee and was baptized by John in the Jordan. 10 And when he came up out of the water, immediately he saw the heavens being torn open and the Spirit descending on him like a dove. 11 And a voice came from heaven, "You are my beloved Son; with you I am well pleased."
+              The Temptation of Jesus
+              12 The Spirit immediately drove him out into the wilderness. 13 And he was in the wilderness forty days, being tempted by Satan. And he was with the wild animals, and the angels were ministering to him.
+              Jesus Begins His Ministry
+              14 Now after John was arrested, Jesus came into Galilee, proclaiming the gospel of God, 15 and saying, "The time is fulfilled, and the kingdom of God is at hand; repent and believe in the gospel."
+              Jesus Calls the First Disciples
+              16 Passing alongside the Sea of Galilee, he saw Simon and Andrew the brother of Simon casting a net into the sea, for they were fishermen. 17 And Jesus said to them, "Follow me, and I will make you become fishers of men." 18 And immediately they left their nets and followed him. 19 And going on a little farther, he saw James the son of Zebedee and John his brother, who were in their boat mending the nets. 20 And immediately he called them, and they left their father Zebedee in the boat with the hired servants and followed him.
+              Jesus Heals a Man with an Unclean Spirit
+              21 And they went into Capernaum, and immediately on the Sabbath he entered the synagogue and was teaching. 22 And they were astonished at his teaching, for he taught them as one who had authority, and not as the scribes. 23 And immediately there was in their synagogue a man with an unclean spirit. And he cried out, 24 "What have you to do with us, Jesus of Nazareth? Have you come to destroy us? I know who you are--the Holy One of God." 25 But Jesus rebuked him, saying, "Be silent, and come out of him!" 26 And the unclean spirit, convulsing him and crying out with a loud voice, came out of him. 27 And they were all amazed, so that they questioned among themselves, saying, "What is this? A new teaching with authority! He commands even the unclean spirits, and they obey him." 28 And at once his fame spread everywhere throughout all the surrounding region of Galilee.
+              Jesus Heals Many
+              29 And immediately heleft the synagogue and entered the house of Simon and Andrew, with James and John. 30 Now Simon's mother-in-law lay ill with a fever, and immediately they told him about her. 31 And he came and took her by the hand and lifted her up, and the fever left her, and she began to serve them. 32 That evening at sundown they brought to him all who were sick or oppressed by demons. 33 And the whole city was gathered together at the door. 34 And he healed many who were sick with various diseases, and cast out many demons. And he would not permit the demons to speak, because they knew him.
+              Jesus Preaches in Galilee
+              35 And rising very early in the morning, while it was still dark, he departed and went out to a desolate place, and there he prayed. 36 And Simon and those who were with him searched for him, 37 and they found him and said to him, "Everyone is looking for you." 38 And he said to them, "Let us go on to the next towns, that I may preach there also, for that is why I came out." 39 And he went throughout all Galilee, preaching in their synagogues and casting out demons.
+              Jesus Cleanses a Leper
+              40 And a leper came to him, imploring him, and kneeling said to him, "If you will, you can make me clean." 41 Moved with pity, he stretched out his hand and touched him and said to him, "I will; be clean." 42 And immediately the leprosy left him, and he was made clean. 43 And Jesus sternly charged him and sent him away at once, 44 and said to him, "See that you say nothing to anyone, but go, show yourself to the priest and offer for your cleansing what Moses commanded, for a proof to them." 45 But he went out and began to talk freely about it, and to spread the news, so that Jesus could no longer openly enter a town, but was out in desolate places, and people were coming to him from every quarter.
+
+            
+          </p>
           
           <!--^^^^^^THIS AREA IS FOR PAGE VIEW WHERE ALL TEXT / REFS WILL BE^^^^^^-->
         </div>
@@ -39,12 +120,6 @@
             arrow_back
           </i>
         </button>
-        <div class="dropdown">
-            <button class="nextPage btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{pageNumber}}</button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" *ngFor="let num of chapters; let i=index" (click)="jumpToPage(i+1)">{{i+1}}</a>
-            </div>
-          </div>
         <button class="nextPage" (click)='nextPage()'>
           <i class="material-icons">
             arrow_forward
